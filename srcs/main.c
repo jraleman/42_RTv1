@@ -47,7 +47,7 @@ int   main(int argc, char *argv[])
     else
     {
         rtv1 = init_values();
-        //set_hooks(rtv1);
+        set_hooks(rtv1);
         // check for file extension (.rtv1)
         // save data to a 2d array
         // read from cli

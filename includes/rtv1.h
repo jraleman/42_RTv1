@@ -38,6 +38,21 @@
 # undef KEY_OPTION
 # define KEY_OPTION    (0X105)
 
+/*
+** RTv1 Structure
+**
+** @t_mlx  : Required minilibx arguments.
+**             init -> set up a connection to the graphical system.
+**             win -> manages the window.
+**             img -> manipulates the image.
+** @t_img  : Used to create a new image.
+**             data -> information about the image, allowing to be modified.
+**             size -> move from one line to another in the image.
+**             endian -> how the pixel color in the image needs to be stored.
+**             bpp -> filled with number of bits to represent a pixel color.
+** @t_rtv1 : Nested structure that calls all the other structures. ;)
+*/
+
 typedef struct  s_mlx
 {
   void   *init;
@@ -58,5 +73,11 @@ typedef struct  s_rtv1
   t_mlx  mlx;
   t_img  image;
 }               t_rtv1;
+
+/*
+** Function prototypes.
+*/
+
+void      set_hooks(t_rtv1 *rtv1);
 
 #endif

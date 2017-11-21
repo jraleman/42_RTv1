@@ -24,7 +24,7 @@ LIBFT_DIR  = ./libft/
 MINLBX_DIR = ./minilibx/
 
 # Source files and object files
-SRC_FILES  = main.c
+SRC_FILES  = main.c set_hooks.c
 OBJ_FILES  = $(SRC_FILES:.c=.o)
 
 # Paths
