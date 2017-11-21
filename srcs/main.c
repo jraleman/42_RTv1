@@ -20,7 +20,7 @@ static void		print_usage(char *progname)
 {
 	ft_putstr("usage: ");
 	ft_putstr(progname);
-	ft_putendl(" file.rtv1");
+	ft_putendl(" file.rt");
 	return ;
 }
 
