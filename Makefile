@@ -11,7 +11,7 @@
 # **************************************************************************** #
 
 # Name of the program
-NAME       = rtv1
+NAME       = RTv1
 
 # Compiling flags
 FLAGS      = -Wall -Wextra -Werror -g -Ofast
