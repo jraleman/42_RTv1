@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rtv1.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaleman <jaleman@student.42.us.org>        +#+  +:+       +#+        */
+/*   By: jaleman <jaleman@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/21 07:28:01 by jaleman           #+#    #+#             */
-/*   Updated: 2017/11/21 07:28:02 by jaleman          ###   ########.fr       */
+/*   Updated: 2017/11/21 20:11:05 by ivelutin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,44 @@ typedef struct	s_img
 	int		endian;
 	int		*data;
 }				t_img;
+
+typedef struct	s_pln
+{
+	//props (flg, size, coord, color...);
+	struct s_pln	*next;
+}				t_pln;
+
+typedef struct	s_cone
+{
+	//props (size, coord, color...);
+	struct s_cone	*next;
+}				t_cone;
+
+typedef struct	s_sphr
+{
+	//props (size, coord, color...);
+	struct s_sphr	*next;
+}				t_sphr;
+
+
+typedef struct	s_cyld
+{
+	//props (size, coord, color...);
+	struct s_cyld	*next;
+}				t_cyld;
+
+// IDEA:
+// put_obj(rtv1);
+	// if (rtv1->shape.cone != NULL)
+		//put_cone(rtv1->shape.cone);
+
+typedef struct	s_shape
+{
+	t_pln	plane;
+	t_cone	cone;
+	t_sphr	sphere;
+	t_cyld	cylinder;
+}				t_shape;
 
 typedef struct	s_rtv1
 {
