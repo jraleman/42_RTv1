@@ -119,6 +119,7 @@ typedef struct	s_rtv1
 	t_img	image;
 	t_shape	shape;
 	t_vect	vector;
+  int     props_flg;
 }				t_rtv1;
 
 /*
