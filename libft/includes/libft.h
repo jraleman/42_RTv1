@@ -106,6 +106,13 @@
 # define FT_MEMCMP(A, o, B)	(ft_memcmp((A), (B)) o 0)
 
 /*
+** Get next line macros
+*/
+
+# define BUFF_SIZE			(1024)
+# define GNL_CHK(a) 		if(1){if(a){return(-1);}}
+
+/*
 ** Define the bool typedef to use for older compilers.
 */
 
@@ -334,6 +341,7 @@ double				ft_stck_pop(t_stack *top);
 ** Miscellaneous functions
 */
 
+int					get_next_line(const int fd, char **line);
 int					ft_degrees_to_angle(int angle);
 int					ft_compact(char **tab, int length);
 int					ft_do_op(int nbr1, int nbr2, char op);
