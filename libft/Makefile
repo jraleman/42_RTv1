@@ -17,7 +17,8 @@ SRC_DIR := srcs
 OBJ_DIR := objs
 
 INCLS   := $(INC_DIR)
-SRCS    := ft_putendl.c ft_puterror.c ft_putstr.c ft_memdel.c
+SRCS    := ft_putendl.c ft_puterror.c ft_putstr.c ft_memdel.c ft_strcmp.c \
+			ft_file_extension.c ft_strequ.c ft_strlen.c ft_strrchr.c
 OBJS    := $(SRCS:%.c=$(OBJ_DIR)/%.o)
 
 CC      := gcc
