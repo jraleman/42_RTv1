@@ -15,6 +15,7 @@
 t_rtv1	*get_data(t_rtv1 *rtv1, char *filename)
 {
 	rtv1 = NULL;
-	filename = NULL;
+  if (ft_file_extension(filename, ".rt") == 0)
+       ft_puterror("Check the file extension! :O", 2);
 	return (rtv1);
 }
