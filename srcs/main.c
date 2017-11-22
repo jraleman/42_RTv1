@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaleman <jaleman@student.42.us.org>        +#+  +:+       +#+        */
+/*   By: jaleman <jaleman@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/21 07:27:52 by jaleman           #+#    #+#             */
-/*   Updated: 2017/11/21 07:27:53 by jaleman          ###   ########.fr       */
+/*   Updated: 2017/11/21 20:08:53 by ivelutin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,10 +60,13 @@ int				main(int argc, char *argv[])
 	{
 		rtv1 = init_values();
 		set_hooks(rtv1);
-		// check for file extension (.rtv1)
-		// save data to a 2d array
-		// read from cli
+		// 1. check and parse file (check extension and save data to 2d)
+		//     rtv1->data = get_data(rtv1);
+		// 2. draw the image to the screen
+		//     raytrace(rtv1);
+		// 3. read from cli (call 2nd function)
 		mlx_loop(rtv1->mlx.init);
+		ft_memdel((void**)&rtv1);
 	}
 	return (0);
 }
