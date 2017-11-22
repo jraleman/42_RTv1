@@ -363,5 +363,8 @@ size_t				ft_wordcount(const char *s, char c);
 size_t				ft_wordlen(const char *s, char c);
 size_t				ft_char_count(char **values);
 size_t				ft_values_count(char **values);
+void          debug_pause_print(char *msg);
+int           ft_getchar(void);
+int           ft_line_is_comment(char *line, char *comment);
 
 #endif
