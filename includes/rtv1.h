@@ -125,5 +125,6 @@ typedef struct	s_rtv1
 */
 
 void			set_hooks(t_rtv1 *rtv1);
+t_rtv1			*get_data(t_rtv1 *rtv1, char *filename);
 
 #endif

@@ -60,6 +60,7 @@ int				main(int argc, char *argv[])
 	{
 		rtv1 = init_values();
 		set_hooks(rtv1);
+		get_data(rtv1, argv[1]);
 		// 1. check and parse file (check extension and save data to 2d)
 		//     rtv1->data = get_data(rtv1);
 		// 2. draw the image to the screen
