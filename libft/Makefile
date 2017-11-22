@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jaleman <jaleman@student.42.us.org>        +#+  +:+       +#+         #
+#    By: jaleman <jaleman@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/03 23:46:05 by jaleman           #+#    #+#              #
-#    Updated: 2016/11/03 23:46:08 by jaleman          ###   ########.fr        #
+#    Updated: 2017/11/21 20:12:11 by ivelutin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ SRC_DIR := srcs
 OBJ_DIR := objs
 
 INCLS   := $(INC_DIR)
-SRCS    := ft_putendl.c ft_puterror.c ft_putstr.c
+SRCS    := ft_putendl.c ft_puterror.c ft_putstr.c ft_memdel.c
 OBJS    := $(SRCS:%.c=$(OBJ_DIR)/%.o)
 
 CC      := gcc
