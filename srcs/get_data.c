@@ -12,6 +12,11 @@
 
 #include "rtv1.h"
 
+int   ft_is_comment(char *line, char sign)
+{
+    return (ft_strtrim(line)[0] == sign);
+}
+
 /*
 ** Read the file content.
 */
@@ -26,11 +31,10 @@ static void read_file(t_rtv1 *rtv1, char *filename)
   if ((fd = open(filename, O_RDONLY)) < 0)
       ft_puterror("Error opening file, does it exist?", 3);
 
-
-  int i = 0;
   while (get_next_line(fd, &buff) > 0)
   {
-      printf("%d\n", i++);
+      if (!ft_is_comment(buff, '#'))
+          printf("%s\n", buff);
       ft_memdel((void **)&buff);
   }
 
