@@ -12,6 +12,7 @@
 
 # Prerequisites
 *.d
+ignore/
 
 # Object files
 *.o
