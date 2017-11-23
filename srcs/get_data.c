@@ -13,26 +13,6 @@
 #include "rtv1.h"
 
 /*
-** Returns the first word found in a string.
-*/
-
-char		*ft_first_word(char *str)
-{
-	int		i;
-	char	word[9000];
-
-	i = 0;
-	ft_bzero(word, 9000);
-	while (str[i] != '\0' && !ft_iswspace(str[i]))
-	{
-		word[i] = str[i];
-		i += 1;
-	}
-	word[i] = '\0';
-	return (ft_strdup(word));
-}
-
-/*
 ** Save shape properties into the structure.
 */
 
@@ -42,7 +22,8 @@ static void	parse_value(t_shape *shape, char *line)
 
 	pos = 0;
 	(void)shape;
-	printf("%s\n", line);
+	(void)line;
+	//printf("%s\n", line);
 	return ;
 }
 
@@ -51,25 +32,23 @@ static int	read_line(t_rtv1 *rtv1, char *line)
 	int		ret;
 
 	ret = 0;
+	printf("%s\n", line);
 	if (*line == '\0' || ft_line_is_comment(line, "#") == 1)
-		ret = 0;
-	else if (ft_strrchr(line, '{') && rtv1->shape.props == 0)
+		ret = 1;
+	else if (ft_strrchr(line, '{') && rtv1->props_flg == 0)
 	{
-		rtv1->shape.props = 1;
+		rtv1->props_flg = 1;
 		rtv1->shape.name = ft_first_word(line);
 	}
-	else if (rtv1->shape.props == 1)
-		parse_value(&rtv1->shape, line);
-	else if (line[0] == '}' && rtv1->shape.props == 1)
+	else if (rtv1->props_flg == 1)
 	{
-		rtv1->shape.props = 0;
-		ret = 1;
+		if (line[0] == '}')
+			rtv1->props_flg = 0;
+		else
+			parse_value(&rtv1->shape, line);
 	}
 	else
-	{
-		printf("%s\n", line);
 		ret = -1;
-	}
 	ft_memdel((void **)&line);
 	return (ret);
 }

@@ -43,6 +43,7 @@ static t_rtv1	*init_values(void)
 												&rtv1->image.bpp, \
 												&rtv1->image.size, \
 												&rtv1->image.endian);
+	rtv1->props_flg = 0;
 	return (rtv1);
 }
 
