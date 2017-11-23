@@ -18,21 +18,31 @@
 
 static void	parse_value(t_shape *shape, char *line)
 {
-	int		pos;
+	char	*tmp;
+	char	**split;
 
-	pos = 0;
-	(void)shape;
-	(void)line;
-	//printf("%s\n", line);
+	tmp = ft_str_remove_whitespace(line);
+	split = ft_strsplit(tmp, ':');
+
+	// modify || refactor here
+	if (ft_strequ(split[0], "color") == 1 && *split[1] == '#' && ft_str_is_numeric(split[1] + 1))
+		shape->color = ft_atoi(split[1] + 1);
+	else if (ft_strequ(split[0], "size") == 1 && ft_str_is_numeric(split[1]))
+		shape->size = ft_atoi(split[1]);
+
+	ft_memdel((void **)&tmp);
 	return ;
 }
 
-static int	read_line(t_rtv1 *rtv1, char *line)
+/*
+** Read the line content, returning if it's valid, a comment, or invalid.
+*/
+
+static int	read_line_content(t_rtv1 *rtv1, char *line)
 {
 	int		ret;
 
 	ret = 0;
-	printf("%s\n", line);
 	if (*line == '\0' || ft_line_is_comment(line, "#") == 1)
 		ret = 1;
 	else if (ft_strrchr(line, '{') && rtv1->props_flg == 0)
@@ -42,7 +52,7 @@ static int	read_line(t_rtv1 *rtv1, char *line)
 	}
 	else if (rtv1->props_flg == 1)
 	{
-		if (line[0] == '}')
+		if (*line == '}')
 			rtv1->props_flg = 0;
 		else
 			parse_value(&rtv1->shape, line);
@@ -54,7 +64,7 @@ static int	read_line(t_rtv1 *rtv1, char *line)
 }
 
 /*
-** Read the file content.
+** Read the file content, line by line.
 */
 
 static void	read_file(t_rtv1 *rtv1, int fd)
@@ -66,7 +76,7 @@ static void	read_file(t_rtv1 *rtv1, int fd)
 	buff = NULL;
 	while (get_next_line(fd, &buff) > 0)
 	{
-		ret = read_line(rtv1, ft_strtrim(buff));
+		ret = read_line_content(rtv1, ft_strtrim(buff));
 		if (ret == -1)
 			ft_puterror("Invalid characters in the file!", 4);
 		// else if (ret == 2)
