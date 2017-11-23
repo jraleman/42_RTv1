@@ -104,7 +104,6 @@ typedef struct	s_shape
 	char	*name;
 	int		size;
 	int		color;
-	int		props;
 }				t_shape;
 
 typedef struct	s_vect
@@ -120,6 +119,7 @@ typedef struct	s_rtv1
 	t_img	image;
 	t_shape	shape;
 	t_vect	*vector;
+	int		props_flg;
 }				t_rtv1;
 
 /*
