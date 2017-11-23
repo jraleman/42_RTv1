@@ -17,7 +17,13 @@ SRC_DIR := srcs
 OBJ_DIR := objs
 
 INCLS   := $(INC_DIR)
-SRCS    := ft_putendl.c ft_puterror.c ft_putstr.c ft_memdel.c
+SRCS    := ft_putendl.c ft_puterror.c ft_putstr.c ft_memdel.c ft_strcmp.c \
+			ft_file_extension.c ft_strequ.c ft_strlen.c ft_strrchr.c get_next_line.c \
+			ft_bzero.c ft_strchr.c ft_strclr.c ft_strcpy.c ft_strdup.c ft_strncat.c \
+			ft_strnew.c ft_strsub.c ft_strtrim.c ft_iswspace.c ft_strncpy.c ft_strncmp.c \
+			ft_line_is_comment.c \
+			\
+			debug_pause_print.c ft_getchar.c
 OBJS    := $(SRCS:%.c=$(OBJ_DIR)/%.o)
 
 CC      := gcc

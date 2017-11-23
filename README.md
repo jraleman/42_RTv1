@@ -16,6 +16,7 @@
   - https://www.youtube.com/watch?v=Bx212THhykk
 - [Ray Tracing - UC](https://www.youtube.com/watch?v=Ahp6LDQnK4Y)
 - [Ray Tracing in Computer Graphics](https://www.youtube.com/watch?v=H-CMDCmehy4)
+- [An Introduction to Ray Tracing](http://cg.inf.h-bonn-rhein-sieg.de/wp-content/uploads/2009/04/introductiontoraytracing.pdf)
 
 ### Practical Use
 

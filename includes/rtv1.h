@@ -18,6 +18,7 @@
 */
 
 # include <math.h>
+# include <fcntl.h>
 # include <unistd.h>
 # include <stdlib.h>
 
@@ -51,6 +52,24 @@
 # define KEY_OPTION		(0X105)
 
 /*
+** Macros used for the width and the height of the plane
+*/
+
+# define PLANE_WIDTH	(25)
+# define PLANE_HEIGHT	(25)
+
+/*
+** Global variable used for the plane
+*/
+
+# ifndef GLOBAL_VAR
+#  define GLOBAL_VAR
+
+extern int		g_plane[PLANE_WIDTH][PLANE_HEIGHT];
+
+# endif
+
+/*
 ** RTv1 Structure
 **
 ** @t_mlx  : Required minilibx arguments.
@@ -80,48 +99,27 @@ typedef struct	s_img
 	int		*data;
 }				t_img;
 
-typedef struct	s_pln
-{
-	//props (flg, size, coord, color...);
-	struct s_pln	*next;
-}				t_pln;
-
-typedef struct	s_cone
-{
-	//props (size, coord, color...);
-	struct s_cone	*next;
-}				t_cone;
-
-typedef struct	s_sphr
-{
-	//props (size, coord, color...);
-	struct s_sphr	*next;
-}				t_sphr;
-
-
-typedef struct	s_cyld
-{
-	//props (size, coord, color...);
-	struct s_cyld	*next;
-}				t_cyld;
-
-// IDEA:
-// put_obj(rtv1);
-	// if (rtv1->shape.cone != NULL)
-		//put_cone(rtv1->shape.cone);
-
 typedef struct	s_shape
 {
-	t_pln	plane;
-	t_cone	cone;
-	t_sphr	sphere;
-	t_cyld	cylinder;
+	char	*name;
+	int		size;
+	int		color;
 }				t_shape;
+
+typedef struct	s_vect
+{
+	double	x;
+	double	y;
+	double	z;
+}				t_vect;
 
 typedef struct	s_rtv1
 {
 	t_mlx	mlx;
 	t_img	image;
+	t_shape	shape;
+	t_vect	vector;
+  int     props_flg;
 }				t_rtv1;
 
 /*
@@ -129,5 +127,6 @@ typedef struct	s_rtv1
 */
 
 void			set_hooks(t_rtv1 *rtv1);
+t_rtv1			*get_data(t_rtv1 *rtv1, char *filename);
 
 #endif
