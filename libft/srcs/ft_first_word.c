@@ -1,24 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_line_is_comment.c                               :+:      :+:    :+:   */
+/*   ft_first_word.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaleman <jaleman@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/22 22:34:36 by jaleman           #+#    #+#             */
-/*   Updated: 2017/11/22 22:34:37 by jaleman          ###   ########.fr       */
+/*   Created: 2017/11/22 22:34:01 by jaleman           #+#    #+#             */
+/*   Updated: 2017/11/22 22:34:01 by jaleman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "libft.h"
 
 /*
-** Check if the line given as parameter is a comment.
-** Useful if you're reading lines and checking comments in a script file.
+** Returns the first word found in a string.
 */
 
-int   ft_line_is_comment(char *line, char *comment)
+char		*ft_first_word(char *str)
 {
-    return (!ft_strncmp(ft_strtrim(line), comment, ft_strlen(comment)));
+	int		i;
+	char	word[9000];
+
+	i = 0;
+	ft_bzero(word, 9000);
+	while (str[i] != '\0' && !ft_iswspace(str[i]))
+	{
+		word[i] = str[i];
+		i += 1;
+	}
+	word[i] = '\0';
+	return (ft_strdup(word));
 }
