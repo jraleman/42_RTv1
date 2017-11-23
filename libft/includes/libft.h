@@ -363,6 +363,7 @@ size_t				ft_wordcount(const char *s, char c);
 size_t				ft_wordlen(const char *s, char c);
 size_t				ft_char_count(char **values);
 size_t				ft_values_count(char **values);
+char				*ft_str_remove_whitespace(char *str);
 
 /*
 ** New functions! :D

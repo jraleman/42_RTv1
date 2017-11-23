@@ -1,25 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   debug_pause_print.c                                :+:      :+:    :+:   */
+/*   ft_str_is_numeric.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaleman <jaleman@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/22 22:56:17 by jaleman           #+#    #+#             */
-/*   Updated: 2017/11/22 22:56:18 by jaleman          ###   ########.fr       */
+/*   Created: 2016/08/16 01:21:53 by jaleman           #+#    #+#             */
+/*   Updated: 2016/08/16 01:21:53 by jaleman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-** Prints a message and pause the program, waiting for the user to press enter.
+** Checks if the character is a digit (number).
 */
 
-void	debug_pause_print(char *message)
+int		ft_isdigit(int c)
 {
-	ft_putstr(message);
-	ft_getchar();
-	ft_putendl(">=========================================================<\n");
-	return ;
+	return (c >= '0' && c <= '9');
+}
+
+/*
+** Checks if the string is numerical.
+*/
+
+int		ft_str_is_numeric(char *str)
+{
+	int		i;
+
+	i = 0;
+	while (str[i])
+		if (!ft_isdigit(str[i++]))
+			return (0);
+	return (1);
 }

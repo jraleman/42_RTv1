@@ -1,25 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   debug_pause_print.c                                :+:      :+:    :+:   */
+/*   ft_str_remove_whitespace.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaleman <jaleman@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/22 22:56:17 by jaleman           #+#    #+#             */
-/*   Updated: 2017/11/22 22:56:18 by jaleman          ###   ########.fr       */
+/*   Created: 2016/12/02 12:37:58 by jaleman           #+#    #+#             */
+/*   Updated: 2016/12/02 12:38:01 by jaleman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-** Prints a message and pause the program, waiting for the user to press enter.
+** Create a new string, and remove all the whitespace from the string.
+** For instance: "  a b c   d  " -> "abcd".
 */
 
-void	debug_pause_print(char *message)
+char		*ft_str_remove_whitespace(char *str)
 {
-	ft_putstr(message);
-	ft_getchar();
-	ft_putendl(">=========================================================<\n");
-	return ;
+	int		i;
+	int		j;
+	char	shrink[9001];
+
+	i = 0;
+	j = 0;
+	ft_bzero(shrink, 9001);
+	while (str[i] != '\0')
+	{
+		if (!ft_iswspace(str[i]))
+			shrink[j++] = str[i];
+		i += 1;
+	}
+	return (ft_strdup(shrink));
 }
